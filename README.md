@@ -1,0 +1,2 @@
+# cdn
+Hexo GitHUbPage CDN
