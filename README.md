@@ -1,7 +1,33 @@
-大数据开发
+## 大数据开发
 
+### 计算机基础
 
+#### 计算机网络
 
+#### 计算机系统
 
+#### 数据结构与算法
 
-[大数据书籍推荐](https://github.com/Scott-Zou-Developer/BigDataDeveloper/blob/master/docs/books/Java%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90.md)
+### Java基础
+
+#### Java核心
+
+### Linux
+
+### 数据库
+
+#### MySQL
+
+#### Oracle
+
+#### Redis
+
+#### 数据库优化
+
+### 三大框架
+
+#### Spring
+
+#### SpringMVC
+
+#### MyBatis
