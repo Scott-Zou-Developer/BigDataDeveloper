@@ -119,23 +119,73 @@ area({rectangle, Width, Height}) -> Wight * Height;
 area({square, Side}) -> Side * Side.
 ```
 
+**逗号（，）：** 分隔函数调用、数据构造和模式中的参数。
 
+**分号（，）：** 分隔子句。
+
+**句号（.）：** 分隔函数整体，以及shell里的表达式。
 
 #### 4.2 继续购物
 
 #### 4.3 fun:基本的抽象单元
 
+**fun:** Erlang是一种函数式编程语言。函数式编程语言还可以表示函数可以被用作其它函数的参数，也可以返回函数。操作其它函数的函数被称为**高阶函数** 。Erlang中用于代表函数的数据类型被称为fun。
+
+**以fun作为参数的函数：** 标准库里的lists模块导出了一些以fun作为参数的函数。
+
+**返回fun的函数：** 函数不仅可以使用fun作为参数（例如map和filter），还可以返回fun。
+
+例子：括号里的东西就是返回值。
+
+```erlang
+1>Fruit = [apple, pear, orange].
+[apple, pear, orange]
+2>MakeTest = fun(L) -> (fun(X) -> lists:member(X, L) end) end.
+3>IsFriut = MakeTest(Friut).
+返回：IsFriut = MakeTest(Fruit) = fun(Fruit) -> (fun(X) -> lists:member(X, [apple, pear, orange]) end) end.
+	 IsFriut = fun(X) -> lists:member(X, [apple, pear, orange]) end.
+4>IsFruit(pear).
+true
+5>IsFruit(apple).
+true
+6>IsFruit(dog).
+false
+```
+
 #### 4.4 简单列表处理
 
 #### 4.5 列表推导
 
+**列表推导（list comprehension）：** 是无需使用fun、map或filter就能创建列表的表达式。
+
 #### 4.6 内置函数
+
+**内置函数：** 内置函数简称为BIF（built-in function），是哪些作为Erlang语言一部分的函数。有些内置函数是用Erlang实现的，但大多数是用Erlang虚拟机里的底层操作实现的。内置函数能够提供操作系统的接口，并能执行那些无法用Erlang编写或者用Erlang编写比较低效的操作。比如，你无法将一个列表转化为元组，或者查到当前的时间和日期，要执行这样的操作，需要调用内置函数。所有的内置函数都表现的像是Erlang模块的，但那些最常用的内置函数（如list_to_tuple）是自动导入的。
 
 #### 4.7 关卡
 
+**关卡（guard）:** 关卡是一种结构，可以用它来增加模块匹配的威力。通过使用关卡，可以对某个模式里的变量执行简单的测试和比较。
+
+**关卡系列：** 关卡序列（guard sequence）是指单一或一系列的关卡，用分号（;）分隔。对于关卡序列G1;G2; ...; Gn，只要其中有一个关卡（G1、G2……）的值为true，它的值就为true。关卡由一系列关卡表达式组成，用逗号（,）分隔。关卡GuardExpr1, GuardExpr2, ... ,
+GuardExprN只有在所有的关卡表达式（GuardExpr1、GuardExpr2……）都为true时才为true。
+
 #### 4.8 case和if表达式
 
+**case语法：** 
+
+```erlang
+case Expression of
+	Pattern1 [when Guard1] -> Expr_seq1;
+	Pattern2 [when Guard2] -> Expr_seq2;
+	...
+end
+```
+
+case执行过程如下：首先计算表达式Expression的值，假设它的值为value，接下来value值轮流与Pattern1、Pattern2进行模式匹配，直到匹配成功。一旦匹配成功，相应的表达式就会执行；如果所有表达式都不匹配，就会发生异常错误。
+
 #### 4.9 构建自然顺序的列表
+
+### 5.记录与映射组
 
 
 
