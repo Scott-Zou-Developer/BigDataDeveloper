@@ -23,6 +23,7 @@
 ### 2.计算机基础
 
 #### 《HTTP权威指南》
+      计算机网络基础书籍和视频推荐https://mp.weixin.qq.com/s/nFEUZ8COMZUz5Cvn8xgiNA
 
 #### 《算法》
 
